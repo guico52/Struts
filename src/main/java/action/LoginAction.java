@@ -1,12 +1,27 @@
 package action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import bean.LoginBean;
+import javafx.application.Application;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.ApplicationAware;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class LoginAction extends ActionSupport {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
+
+public class LoginAction extends ActionSupport{
 
     String password;
     String username;
+
+    ActionContext context = ActionContext.getContext();
 
     public String getPassword() {
         return password;
@@ -24,10 +39,28 @@ public class LoginAction extends ActionSupport {
         this.username = username;
     }
 
+
+
     public String execute() throws Exception {
-        if(new LoginBean(username, password).isValidate()) {
+
+        Map<String, Object> session = context.getSession();
+        Map<String, Object> application = context.getApplication();
+
+        LoginBean loginBean = new LoginBean(username, password);
+        if (loginBean.isValidate()) {
+            session.put("username", username);
+            context.setSession(session);
+            Integer online = (Integer) application.get("online");
+            if (online == null) {
+                online = 1;
+            } else {
+                online++;
+            }
+            application.put("online", online);
+            context.setApplication(application);
             return SUCCESS;
+        } else {
+            return ERROR;
         }
-        return ERROR;
     }
 }
