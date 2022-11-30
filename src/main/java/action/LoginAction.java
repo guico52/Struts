@@ -1,7 +1,7 @@
 package action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import po.User;
+import bean.LoginBean;
 
 public class LoginAction extends ActionSupport {
 
@@ -25,7 +25,7 @@ public class LoginAction extends ActionSupport {
     }
 
     public String execute() throws Exception {
-        if(new User(username, password).isValidate()) {
+        if(new LoginBean(username, password).isValidate()) {
             return SUCCESS;
         }
         return ERROR;
