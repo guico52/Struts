@@ -3,17 +3,7 @@ package action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import bean.LoginBean;
-import javafx.application.Application;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.interceptor.ApplicationAware;
-import org.apache.struts2.interceptor.SessionAware;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.Map;
 
 public class LoginAction extends ActionSupport{
