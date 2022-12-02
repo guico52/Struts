@@ -9,21 +9,29 @@
     <constant name="struts.custom.i18n.resources" value="global"/>
     <constant name="struts.i18n.encoding" value="UTF-8" />
     
+
     
     <package name="defalut" extends="struts-default">
         <interceptors>
             <interceptor name="loginInterceptor" class="interceptor.LoginInterceptor"/>
+            <interceptor-stack name="myDefault">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="loginInterceptor"/>
+            </interceptor-stack>
         </interceptors>
         <action name="login" class="action.LoginAction" method="execute">
-            <interceptor-ref name="defaultStack"/>
-            <interceptor-ref name="loginInterceptor"/>
-            <result name="success">/success.jsp</result>
+            <result name="success" type="redirectAction">main</result>
             <result name="error">/error.jsp</result>
-            <result name="redirect">/index.jsp</result>
         </action>
         
         <action name="changelan" class="action.ChangelantAction">
             <result name="success">/index.jsp</result>
+        </action>
+        
+        <action name="main" class="action.MainAction" method="execute">
+            <interceptor-ref name="myDefault"/>
+            <result name="input">/index.jsp</result>
+            <result name="success">/success.jsp</result>
         </action>
     </package>
 </struts>

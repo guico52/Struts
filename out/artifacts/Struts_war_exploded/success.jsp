@@ -16,7 +16,7 @@
 </head>
 <body>
 <h2>success</h2>
-
+<h2>登录成功，欢迎来到主页</h2>
 <h3>您是第<s:property value="#application.online" default="-1"/>位登录的用户</h3>
 </body>
 </html>

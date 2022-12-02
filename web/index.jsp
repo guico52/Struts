@@ -23,7 +23,8 @@
         <s:text name="from.password"/>:
         <input type="password" name="password">
     </label>
-    <input type="submit" value="<s:text name="from.submit"/>"></form>
+    <input type="submit" value="<s:text name="from.submit"/>">
+</form>
     <a href="changelan.action?request_locale=zh_CN">简体中文</a>&nbsp;&nbsp;&nbsp;
     <a href="changelan.action?request_locale=en_US">English</a>
 </body>
