@@ -3,22 +3,21 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="bean.Teanchinfo" table="teachinfo">
-        <id name="id" type="int">
+    <class name="bean.Teanchinfo" table="teachinfo_copy1">
+        <id name="id" type="string">
             <column name="id" />
-            <generator class="native" />
         </id>
         <property name="name" type="string">
-            <column name="name" length="20" />
+            <column name="name"  />
         </property>
         <property name="sex" type="string">
-            <column name="sex" length="5"/>
+            <column name="sex"/>
         </property>
         <property name="age" type="int">
             <column name="age" />
         </property>
         <property name="department" type="string">
-            <column name="department" length="50" />
+            <column name="department"  />
         </property>
         
     </class>

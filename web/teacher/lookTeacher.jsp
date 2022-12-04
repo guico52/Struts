@@ -11,13 +11,17 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="teacher.css" rel="stylesheet">
+
 </head>
 <body>
-<table>
-    <tr>查看教师</tr>
-    <tr><a href="addTeacher.jsp">添加教师</a></tr>
-    <tr><a href="findTeacher.jsp">更新教师</a></tr>
-</table>
+<div>
+    查看教师
+    <a href="addTeacher.jsp">添加教师</a>
+    <a href="findTeacher.jsp">更新教师</a>
+</div>
+
+
     <%
       List<Teanchinfo> allTeachers = TeacherDao.getAllTeachers();
     %>
@@ -42,7 +46,7 @@
         <td><%=teanchinfo.getSex()%></td>
         <td><%=teanchinfo.getAge()%></td>
         <td><%=teanchinfo.getDepartment()%></td>
-        <td><a href="deleteTeacher.action?id=<%= teanchinfo.getId() %>>">删除</a></td>
+        <td><a href="deleteTeacher.action?id=<%= teanchinfo.getId() %>">删除</a></td>
     </tr>
     <%
         }
