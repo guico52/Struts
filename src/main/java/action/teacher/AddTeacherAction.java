@@ -2,7 +2,6 @@ package action.teacher;
 
 import DAO.TeacherDao;
 import bean.Teanchinfo;
-
 import com.opensymphony.xwork2.ActionSupport;
 import lombok.Getter;
 import lombok.Setter;
