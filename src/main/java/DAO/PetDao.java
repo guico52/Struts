@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class PetDao {
-    private static final SessionFactory sessionFactory = HibernateSessionFactory.getSessionFactory();
+    private static  SessionFactory sessionFactory = HibernateSessionFactory.getSessionFactory();
 
     public static List<Pet> getAllPets(){
         Session session = sessionFactory.openSession();

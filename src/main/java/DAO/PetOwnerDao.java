@@ -10,7 +10,7 @@ import java.util.List;
 public class PetOwnerDao {
     private static final SessionFactory sessionFactory = HibernateSessionFactory.getSessionFactory();
 
-    public static List<PetOwner> getAllPetOwners(){
+    public List<PetOwner> getAllPetOwners(){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         List<PetOwner> list = session.createQuery("from PetOwner").list();

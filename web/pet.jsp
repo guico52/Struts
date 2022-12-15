@@ -16,8 +16,8 @@
 </head>
 <body>
 <%
-    List<Pet> petList = PetDao.getAllPets();
-    List<PetOwner> petOwnerList = PetOwnerDao.getAllPetOwners();
+    List<Pet> petList = new PetDao().getAllPets();
+    List<PetOwner> petOwnerList = new PetOwnerDao().getAllPetOwners();
 %>
 <table>
     <tr>
