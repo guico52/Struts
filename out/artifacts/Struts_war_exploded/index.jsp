@@ -76,6 +76,9 @@
     <div class="link">
         <a class="inter" href="${pageContext.request.contextPath}/teacher/lookTeacher.jsp">点此进入</a>
     </div>
+    <div class="link">
+        <a href="${pageContext.request.contextPath}/pet.jsp">实验五</a>
+    </div>
 </div>
 </body>
 </html>

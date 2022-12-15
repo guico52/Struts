@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="bean.PetOwner" table="petowner">
+        <id name="id" column="id" type="int" />
+        <property name="telephone" column="telephone" type="string" />
+        <property name="name" column="name" type="string" />
+        <property name="address" column="address" type="string" />
+
+    </class>
+</hibernate-mapping>
