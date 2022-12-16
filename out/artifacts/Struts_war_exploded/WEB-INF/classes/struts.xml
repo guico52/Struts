@@ -8,26 +8,28 @@
     
     <constant name="struts.custom.i18n.resources" value="global"/>
     <constant name="struts.i18n.encoding" value="UTF-8" />
+    <!--    配置常量-->
+    <constant name="struts.objectFactory" value="spring"/>
     
-    <package name="defalut" extends="struts-default">
+    <package name="default" extends="struts-default">
         
-        <action name="lookTeacher" class="action.teacher.LookTeacherAction">
+        <action name="lookTeacher" class="lookTeacherAction">
             <result name="success">/teacher/lookTeacher.jsp</result>
         </action>
-        
-        <action name="addTeacher" class="action.teacher.AddTeacherAction">
+
+        <action name="addTeacher" class="addTeacherAction">
             <result name="success">/teacher/addTeacher.jsp</result>
         </action>
-        
-        <action name="findTeacher" class="action.teacher.FindTeacherAction">
+
+        <action name="findTeacher" class="findTeacherAction">
             <result name="success">/teacher/updateTeacher.jsp</result>
         </action>
-        
-        <action name="deleteTeacher" class="action.teacher.DeleteTeacherAction">
+
+        <action name="deleteTeacher" class="deleteTeacherAction">
             <result name="success">/teacher/lookTeacher.jsp</result>
         </action>
-        
-        <action name="updateTeacher" class="action.teacher.UpdateTeacherAction">
+
+        <action name="updateTeacher" class="updateTeacherAction">
             <result name="success">/teacher/lookTeacher.jsp</result>
         </action>
         

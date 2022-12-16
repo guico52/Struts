@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
+
+
+
+    <bean name="addTeacherAction" class="action.teacher.AddTeacherAction" />
+    <bean name="lookTeacherAction" class="action.teacher.LookTeacherAction" />
+    <bean name="deleteTeacherAction" class="action.teacher.DeleteTeacherAction" />
+    <bean name="updateTeacherAction" class="action.teacher.UpdateTeacherAction" />
+    <bean name="findTeacherAction" class="action.teacher.FindTeacherAction" />
+
+
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://101.33.210.228:3306/struts" />
+        <property name="user" value="struts"/>
+        <property name="password" value="eYLPs3H7z3ZpPnZN"/>
+        <property name="maxPoolSize" value="30"/>
+        <property name="minPoolSize" value="5"/>
+        <property name="initialPoolSize" value="5"/>
+        <property name="maxIdleTime" value="20"/>
+
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>hbm/Teachinfo.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="teacherDao" class="DAO.TeacherDao">
+        <property name="template" ref="hibernateTemplate"/>
+    </bean>
+
+
+</beans>
